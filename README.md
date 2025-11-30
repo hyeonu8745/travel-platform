@@ -1,14 +1,6 @@
-좋아요.
-**GitHub 최상위 프로젝트처럼 보일 수 있도록, 넣을 수 있는 요소를 거의 전부 포함한 "풀옵션 README"** 버전을 만들어드릴게요.
-아래는 **배너 · 서비스 소개 · 기술 스택 뱃지 · 아키텍처 · ERD · 기능 설명 · 스크린샷 · 설치법 · API 문서 · 개발 규칙 · 로드맵 · 배포 시나리오 · 보안 가이드 · FAQ · Contact · License**까지 포함한 **최종 풀버전 README** 입니다.
-
 ---
 
 # ✈️ **Travel Sphere – Full Stack Travel Platform**
-
-<p align="center">
-  <img src="https://via.placeholder.com/900x250?text=Travel+Sphere+%7C+All-in-One+Travel+Platform" />
-</p>
 
 <p align="center">
   <b>여행 계획 · 실시간 채팅 · 후기 공유 · Web & Android 통합 여행 플랫폼</b><br>
@@ -221,19 +213,6 @@
 └──────────────────────────┘
 
 ---
-
-# 🙌 완성!
-
-원하시면 아래도 추가해드릴 수 있어요:
-
-✅ ERD를 **PNG 이미지 형태**로 Markdown에 삽입하는 버전
-✅ ERD를 **Mermaid 다이어그램**으로 자동화하는 버전
-✅ ERD를 기반으로 **Model 코드(Node.js Sequelize)** 자동 생성
-✅ ERD를 기반으로 **API 구조 제안**
-
-필요해?
-
----
 # 📁 **Project Structure**
 
 ```
@@ -338,9 +317,7 @@ joinRoom
 sendMessage
 receiveMessage
 leaveRoom
-```
-
-원하면 → **자동 Swagger UI 버전으로 만들어드림**
+```*
 
 ---
 
