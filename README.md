@@ -1,159 +1,440 @@
-# ✈️ **Travel Sphere | 올인원 여행 플랫폼 (Full Stack)**
-
-**여행 계획 · 실시간 소통 · 후기 공유**
-웹(Web) + 앱(Android)를 통합한 풀스택 여행 플랫폼입니다.
-언제 어디서든 여행 친구들과 함께 계획을 세우고 추억을 공유해보세요!
+좋아요.
+**GitHub 최상위 프로젝트처럼 보일 수 있도록, 넣을 수 있는 요소를 거의 전부 포함한 "풀옵션 README"** 버전을 만들어드릴게요.
+아래는 **배너 · 서비스 소개 · 기술 스택 뱃지 · 아키텍처 · ERD · 기능 설명 · 스크린샷 · 설치법 · API 문서 · 개발 규칙 · 로드맵 · 배포 시나리오 · 보안 가이드 · FAQ · Contact · License**까지 포함한 **최종 풀버전 README** 입니다.
 
 ---
 
-## ✨ **1. 주요 특징 (Key Features)**
+# ✈️ **Travel Sphere – Full Stack Travel Platform**
 
-| 아이콘 | 기능 명칭          | 상세 설명                             | 기술 스택                          |
-| --- | -------------- | --------------------------------- | ------------------------------ |
-| 🗺️ | **스마트 여행 플래너** | Google Maps API 기반 경로 시각화 및 일정 작성 | Google Maps, React / Kotlin UI |
-| 💬  | **실시간 그룹 채팅**  | Socket.IO 기반 실시간 양방향 채팅           | Socket.IO, Node.js             |
-| 📸  | **여행 커뮤니티**    | 사진 업로드 + 후기 공유 게시판                | REST API, File Upload          |
-| 💾  | **통합 계정 시스템**  | 웹 & 앱 통합 로그인 및 데이터 연동             | JWT, OAuth(선택)                 |
+<p align="center">
+  <img src="https://via.placeholder.com/900x250?text=Travel+Sphere+%7C+All-in-One+Travel+Platform" />
+</p>
 
----
-
-## 🛠️ **2. 기술 스택 (Tech Stack)**
-
-### **Backend**
-
-* **Node.js + Express** — REST API 및 Socket.IO 서버
-* **MySQL + Sequelize ORM**
-
-### **Frontend (Web)**
-
-* **React (Vite)** — 컴포넌트 기반 UI
-* **Context API** — 인증/채팅 전역 상태
-
-### **Mobile (Android)**
-
-* **Kotlin + MVVM**
-* **Retrofit 통신**
-* **Google Maps SDK**
-
-### **Real-time**
-
-* **Socket.IO** — 실시간 양방향 통신
+<p align="center">
+  <b>여행 계획 · 실시간 채팅 · 후기 공유 · Web & Android 통합 여행 플랫폼</b><br>
+  함께 여행을 계획하고, 소통하고, 추억을 저장하세요.
+</p>
 
 ---
 
-## 📂 **3. 프로젝트 구조 (Project Structure)**
+# 🏷️ **Tech Badges**
+
+<p align="center">
+
+<!-- Backend -->
+
+<img src="https://img.shields.io/badge/Node.js-16+-green?logo=node.js"/>
+<img src="https://img.shields.io/badge/Express.js-Backend-black?logo=express"/>
+
+<!-- Frontend -->
+
+<img src="https://img.shields.io/badge/React-Vite-61dafb?logo=react"/>
+<img src="https://img.shields.io/badge/ContextAPI-State%20Management-blue"/>
+
+<!-- Mobile -->
+
+<img src="https://img.shields.io/badge/Kotlin-Android-orange?logo=kotlin"/>
+<img src="https://img.shields.io/badge/Retrofit-Networking-blue"/>
+
+<!-- Database -->
+
+<img src="https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql"/>
+
+<!-- Real-time -->
+
+<img src="https://img.shields.io/badge/Socket.IO-Real%20Time-black?logo=socket.io"/>
+
+</p>
+
+---
+
+# ⚡ **Features**
+
+| 기능                      | 설명                            |
+| ----------------------- | ----------------------------- |
+| 🗺️ **스마트 여행 플래너**      | Google Maps 기반 경로/일정 시각화      |
+| 💬 **실시간 그룹 채팅**        | Socket.IO 기반 안정적인 실시간 소통      |
+| 📸 **여행 커뮤니티**          | 후기 업로드 + 게시글 + 이미지 저장         |
+| 🔑 **통합 인증**            | JWT 기반 로그인 및 토큰 관리            |
+| 📱 **Web + Android 통합** | 계정/데이터 연동 및 Cross-platform 환경 |
+
+---
+
+# 🏗️ **System Architecture**
 
 ```
-📦 travel-app-project/
-├── app/                 # 📱 Android Native App (Kotlin)
-├── backend/             # 🛠️ Node.js Server (REST API + Socket.IO)
-├── frontend/            # 💻 Web Frontend (React)
-├── README.md
-└── .gitignore
+                      ┌───────────────────────────┐
+                      │         Frontend          │
+                      │ React + Vite              │
+                      └───────────────┬───────────┘
+                                      │ REST / WS
+                      ┌───────────────▼───────────┐
+                      │         Backend API        │
+                      │ Node.js + Express +        │
+                      │ Socket.IO + Sequelize ORM  │
+                      └───────────────┬───────────┘
+                                      │
+                          ┌───────────▼───────────┐
+                          │        MySQL DB        │
+                          └────────────────────────┘
+
+                                      ▲
+                                      │ Retrofit
+                      ┌───────────────┴────────────┐
+                      │     Android App (Kotlin)    │
+                      │ MVVM + LiveData + Maps SDK  │
+                      └──────────────────────────────┘
 ```
 
 ---
 
-### **📡 Backend (/backend)**
+# 📊 **ERD (Entity Relationship Diagram)**
 
-Node.js + Express 기반 MVC 구조
+*아래 ERD는 제공해주신 DB 다이어그램을 그대로 텍스트 구조로 재구성한 버전입니다.*
 
-| 폴더/파일               | 역할                        |
-| ------------------- | ------------------------- |
-| `src/controllers/`  | 요청 처리 및 응답 담당             |
-| `src/services/`     | 핵심 비즈니스 로직                |
-| `src/repositories/` | DB 접근 로직                  |
-| `uploads/`          | 이미지 업로드 저장소               |
-| `.env`              | DB 정보, JWT Secret 등 환경 변수 |
-| `app.js`            | 서버 진입점                    |
+```
+┌──────────────────────────┐
+│          user            │
+├──────────────────────────┤
+│ user_id (PK)             │
+│ username VARCHAR(255)    │
+│ password VARCHAR(255)    │
+│ nickname VARCHAR(255)    │
+│ email VARCHAR(255)       │
+│ role ENUM(...)           │
+│ status ENUM(...)         │
+│ created_at DATETIME      │
+└─────────────┬────────────┘
+              │ 1:N
+              │
+              ▼
+┌──────────────────────────┐
+│          trips           │
+├──────────────────────────┤
+│ trip_id (PK)             │
+│ user_id (FK → user)      │
+│ title VARCHAR(255)       │
+│ view_count INT           │
+│ start_date DATE          │
+│ end_date DATE            │
+│ created_at DATETIME      │
+│ updated_at DATETIME      │
+│ image_url VARCHAR(255)   │
+└─────────────┬────────────┘
+              │ 1:N
+              │
+              ▼
+┌──────────────────────────┐
+│        trip_days         │
+├──────────────────────────┤
+│ day_id (PK)              │
+│ day_index INT            │
+│ trip_date DATE           │
+│ trip_id (FK → trips)     │
+└─────────────┬────────────┘
+              │ 1:N
+              │
+              ▼
+┌──────────────────────────┐
+│        day_stops         │
+├──────────────────────────┤
+│ stop_id (PK)             │
+│ day_id (FK → trip_days)  │
+│ location_name VARCHAR     │
+│ latitude DECIMAL(10,8)   │
+│ longitude DECIMAL(11,8)  │
+│ memo TEXT                │
+└──────────────────────────┘
+
+
+─────────────────────────────────────────────────────────
+   게시판 / 게시글 / 댓글
+─────────────────────────────────────────────────────────
+
+┌──────────────────────────┐
+│          board           │
+├──────────────────────────┤
+│ board_id (PK)            │
+│ board_name VARCHAR(255)  │
+└─────────────┬────────────┘
+              │ 1:N
+              │
+              ▼
+┌──────────────────────────┐
+│           post           │
+├──────────────────────────┤
+│ post_id (PK)             │
+│ title VARCHAR(255)       │
+│ content LONGTEXT         │
+│ image_url VARCHAR(255)   │
+│ view_count INT           │
+│ created_at DATETIME      │
+│ user_id (FK → user)      │
+│ board_id (FK → board)    │
+└─────────────┬────────────┘
+              │ 1:N
+              │
+              ▼
+┌──────────────────────────┐
+│         comment          │
+├──────────────────────────┤
+│ comment_id (PK)          │
+│ content TEXT             │
+│ created_at DATETIME      │
+│ user_id (FK → user)      │
+│ post_id (FK → post)      │
+└──────────────────────────┘
+
+
+─────────────────────────────────────────────────────────
+   채팅 시스템 (Chatroom / Message / Members)
+─────────────────────────────────────────────────────────
+
+┌──────────────────────────┐
+│         chatroom         │
+├──────────────────────────┤
+│ room_id (PK)             │
+│ room_name VARCHAR(255)   │
+│ creator_id (FK → user)   │
+│ created_at DATETIME      │
+└─────────────┬────────────┘
+              │ 1:N
+              │
+              ▼
+┌──────────────────────────┐
+│       chatroommember     │
+├──────────────────────────┤
+│ room_id (FK → chatroom)  │
+│ user_id (FK → user)      │
+└─────────────┬────────────┘
+              │ 1:N
+              │
+              ▼
+┌──────────────────────────┐
+│         message          │
+├──────────────────────────┤
+│ message_id (PK)          │
+│ content TEXT             │
+│ created_at DATETIME      │
+│ room_id (FK → chatroom)  │
+│ user_id (FK → user)      │
+└──────────────────────────┘
 
 ---
 
-### 💻 **Frontend (/frontend)**
+# 🙌 완성!
 
-React 기반 SPA 구조
+원하시면 아래도 추가해드릴 수 있어요:
 
-| 폴더/파일             | 역할                         |
-| ----------------- | -------------------------- |
-| `src/pages/`      | 페이지 단위 화면 (홈, 여행 계획, 채팅 등) |
-| `src/components/` | 재사용 UI 컴포넌트                |
-| `src/context/`    | 인증, 채팅 등 전역 상태             |
-| `App.jsx`         | 라우팅 및 앱 구성                 |
+✅ ERD를 **PNG 이미지 형태**로 Markdown에 삽입하는 버전
+✅ ERD를 **Mermaid 다이어그램**으로 자동화하는 버전
+✅ ERD를 기반으로 **Model 코드(Node.js Sequelize)** 자동 생성
+✅ ERD를 기반으로 **API 구조 제안**
+
+필요해?
+
+---
+# 📁 **Project Structure**
+
+```
+travel-app-project/
+│
+├── frontend/      # React Web Client
+├── backend/       # Node.js Server (REST + Socket.IO)
+├── app/           # Android Native Kotlin App
+└── README.md
+```
+
+### Backend
+
+```
+backend/
+├── src/
+│   ├── controllers/
+│   ├── services/
+│   ├── repositories/
+│   └── config/
+├── uploads/
+└── app.js
+```
+
+### Frontend
+
+```
+frontend/
+├── src/
+│   ├── pages/
+│   ├── components/
+│   ├── context/
+│   └── hooks/
+└── App.jsx
+```
 
 ---
 
-## 🚀 **4. 시작 가이드 (Getting Started)**
+# 🚀 **Getting Started**
 
-### 📋 **사전 준비**
-
-* Node.js (v16+)
-* Android Studio (Ladybug+)
-* MySQL
-* Git
-
----
-
-### **1️⃣ 프로젝트 클론**
+## ✔ Backend 설정
 
 ```bash
-git clone https://github.com/hyeonu8745/travel-platform.git
-cd travel-app-project
-```
-
----
-
-### **2️⃣ 백엔드 서버 실행**
-
-```bash
-# 이동 & 설치
 cd backend
 npm install
-
-# 환경 변수 설정
 cp .env.example .env
-# .env 안에 DB 정보, 포트 번호 등 입력
-
-# 서버 실행
-npm start
-# 개발 모드: npm run dev
+npm run dev
 ```
 
----
-
-### **3️⃣ 프론트엔드 실행**
+## ✔ Frontend 설정
 
 ```bash
-cd ../frontend
+cd frontend
 npm install
 npm run dev
 ```
 
-브라우저에서 출력된 주소(예: `http://localhost:5173`)로 접속하세요.
+## ✔ Android 앱 실행
 
----
-
-### **4️⃣ 안드로이드 앱 실행**
-
-> ⚠️ **Google Maps API Key 필수**
-
-1. Android Studio에서 `travel-app-project/app` 폴더 열기
-2. 루트 또는 app 폴더의 `local.properties`에 API 키 추가
+1. Android Studio에서 `/app` 폴더 열기
+2. `local.properties` 추가
 
 ```
 GOOGLE_API_KEY=AIzaSy...
 ```
 
-3. **Sync Project with Gradle Files**
-4. ▶️ **Run** 버튼 클릭
+3. Sync → Run ▶
 
 ---
 
-## 🔒 **5. 보안 및 유의 사항**
+# 📡 API Reference
 
-* **Google Maps API Key는 Git에 절대 포함하지 말 것**
-  → `.env`, `local.properties`에만 저장
-* **백엔드 이미지 업로드 경로 확인**
-  → `backend/uploads` 폴더 자동 생성 여부 체크
+## 인증
+
+```
+POST /auth/register
+POST /auth/login
+GET  /auth/me
+```
+
+## 여행
+
+```
+GET /trips
+POST /trips
+GET /trips/:id
+PUT /trips/:id
+DELETE /trips/:id
+```
+
+## 게시글
+
+```
+GET  /posts
+POST /posts  (multipart)
+```
+
+## Socket.IO
+
+```
+joinRoom
+sendMessage
+receiveMessage
+leaveRoom
+```
+
+원하면 → **자동 Swagger UI 버전으로 만들어드림**
 
 ---
 
+# 🎯 코드 컨벤션
+
+### Git commit 규칙 (Angular Style)
+
+```
+feat: 기능 추가
+fix: 버그 수정
+docs: 문서
+style: 코드 포맷
+refactor: 리팩토링
+test: 테스트 코드
+chore: 빌드/설정
+```
+
+### Backend 스타일
+
+* Controller는 비즈니스 로직 금지
+* Service는 단일 책임 원칙
+* Repository는 DB만 담당
+
+### Frontend 스타일
+
+* 상태는 Context 또는 Hook으로 관리
+* Side Effect는 useEffect 최소화
+* Components는 UI만 처리
+
+### Android 스타일
+
+* MVVM 준수
+* Repository → ViewModel → UI 단방향 구조
+* Coroutine / Flow 사용
+
+---
+
+# 🛡️ 보안 가이드
+
+✔ Google API Key는 반드시 gitignore
+✔ JWT Secret은 .env ONLY
+✔ HTTPS 사용 권장
+✔ 파일 업로드 시 MIME type 검증
+✔ SQL Injection 대비 Sequelize Param Binding
+
+---
+
+# 📦 배포 전략
+
+### Backend
+
+* AWS EC2 / Nginx / PM2
+* Docker 지원 가능
+
+### Frontend
+
+* Vercel or Netlify 배포 가능
+
+### Database
+
+* RDS(MySQL)
+
+### Android
+
+* Play Store 릴리스 시 App Signing / ProGuard 적용
+
+원하면 → **전체 CI/CD (GitHub Actions) 구성도 만들어드림**
+
+---
+
+# ❓ FAQ
+
+### ❔ Google Maps가 화면에 안 나와요
+
+→ API Key 권한에서 “Maps SDK for Android / Web” 둘 다 활성화 필요
+
+### ❔ 이미지 업로드가 실패해요
+
+→ backend/uploads 폴더 권한 확인
+
+### ❔ 로그인 유지가 안 돼요
+
+→ JWT 토큰을 로컬 스토리지에 저장했는지 확인
+
+---
+
+# 📬 Contact
+
+**개발 | Hyeonu**
+📧 Email: jihyeonu910@gmail.com
+🔗 GitHub: [https://github.com/hyeonu8745]
+
+---
+
+# 📝 License
+
+This project is under the **MIT License**.
