@@ -1,0 +1,69 @@
+####################################
+# 1. 안드로이드 필수 (가장 중요!)
+####################################
+# 빌드 결과물 및 임시 파일
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.ap_
+*.dex
+*.class
+
+# 앱 모듈 내 빌드 폴더
+app/build/
+
+# 서명 키 (절대 유출 금지)
+*.jks
+*.keystore
+*.pem
+*.p12
+*.key
+
+####################################
+# 2. Node.js / 웹 관련 (기존 설정 유지)
+####################################
+dist/
+.temp/
+.tmp/
+*.log
+.lock
+npm-debug.log
+logs/
+.npm/
+.eslintcache
+node_modules/
+/node_modules
+.yarn/
+yarn-error.log
+npm-shrinkwrap.json
+package-lock.json
+
+####################################
+# 3. 민감 정보 및 환경 변수
+####################################
+# 실제 키가 들어있는 파일은 무시
+.env
+.env.*
+
+# ★ 중요: .env.example 파일은 깃에 올림 (팀원 공유용)
+!.env.example 
+
+####################################
+# 4. 기타 및 IDE 설정
+####################################
+*.sqlite
+*.db
+uploads/
+/uploads
+Thumbs.db
+.vscode/
+.project
+.classpath
+.settings

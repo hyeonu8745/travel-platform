@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F6FA">
+
+    <!-- 상단 타이틀 바 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여행 코스 만들기"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <!-- 스크롤 영역 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- 1. 대표 사진 선택 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#E8EAF6"
+                android:layout_marginBottom="24dp">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/image_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                    <LinearLayout
+                        android:id="@+id/layout_select_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:src="@android:drawable/ic_menu_camera"
+                            app:tint="#5C6BC0"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="대표 사진 선택"
+                            android:textSize="14sp"
+                            android:textColor="#5C6BC0"
+                            android:textStyle="bold"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+                    <Button
+                        android:id="@+id/btn_select_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"/>
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 2. 여행 제목 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여행 제목"
+                android:textSize="14sp"
+                android:textColor="#5C6BC0"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/edit_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_edittext_border"
+                android:hint="예) 2박 3일 제주도 힐링 여행"
+                android:paddingHorizontal="16dp"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- 3. 여행 기간 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여행 기간"
+                android:textSize="14sp"
+                android:textColor="#5C6BC0"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="24dp">
+                <EditText
+                    android:id="@+id/edit_start_date"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_edittext_border"
+                    android:hint="시작일 선택"
+                    android:paddingHorizontal="16dp"
+                    android:textSize="14sp"
+                    android:focusable="false"
+                    android:layout_marginEnd="8dp"/>
+                <EditText
+                    android:id="@+id/edit_end_date"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_edittext_border"
+                    android:hint="종료일 선택"
+                    android:paddingHorizontal="16dp"
+                    android:textSize="14sp"
+                    android:focusable="false"/>
+            </LinearLayout>
+
+            <!-- 구분선 -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEEEE"
+                android:layout_marginBottom="24dp"/>
+
+            <!-- 4. 코스 설정 헤더 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="상세 코스"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_add_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:text="+ 일정 추가"
+                    android:textSize="13sp"
+                    android:textColor="#5C6BC0"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_outline"
+                    android:paddingHorizontal="12dp"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:stateListAnimator="@null"/>
+            </LinearLayout>
+
+            <!-- 탭 레이아웃 -->
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_layout_days"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable"
+                app:tabIndicatorColor="#5C6BC0"
+                app:tabSelectedTextColor="#5C6BC0"
+                app:tabTextColor="#999999"
+                app:tabRippleColor="#E8EAF6"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"/>
+
+            <!-- 5. 장소 목록 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_places"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- 지도 추가 버튼 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_place"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="+ 지도에서 장소 추가하기"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#5C6BC0"
+                android:background="@drawable/bg_button_outline"
+                android:stateListAnimator="@null"
+                android:layout_marginBottom="40dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ⭐️ 하단 버튼 영역 (취소 / 저장) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:background="#FFFFFF"
+        android:elevation="8dp"> <!-- 그림자 효과 -->
+
+        <!-- 취소 버튼 -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="취소"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#555555"
+            android:background="#F0F0F0"
+            android:stateListAnimator="@null"/>
+
+        <!-- 저장 버튼 -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="코스 저장하기"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_primary"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 정보 수정"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"
+            android:layout_marginTop="24dp"/>
+
+        <!-- 닉네임 입력 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="닉네임"
+            android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/edit_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_edittext_border"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- 현재 비밀번호 (본인 확인용) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 비밀번호 (필수)"
+            android:layout_marginBottom="8dp"/>
+        <EditText
+            android:id="@+id/edit_current_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_edittext_border"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 변경 (선택)"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- 새 비밀번호 -->
+        <EditText
+            android:id="@+id/edit_new_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="새 비밀번호"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_edittext_border"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ⭐️ [추가] 새 비밀번호 확인 -->
+        <EditText
+            android:id="@+id/edit_new_password_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="새 비밀번호 확인"
+            android:inputType="textPassword"
+            android:background="@drawable/bg_edittext_border"
+            android:padding="12dp"
+            android:layout_marginBottom="32dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="저장하기"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/bg_button_primary"/>
+
+    </LinearLayout>
+</ScrollView>
