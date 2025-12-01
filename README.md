@@ -25,7 +25,7 @@
 
 <!-- Mobile -->
 
-<img src="https://img.shields.io/badge/Kotlin-Android-orange?logo=Java"/>
+<img src="https://img.shields.io/badge/java-Android-orange?logo=Java"/>
 <img src="https://img.shields.io/badge/Retrofit-Networking-blue"/>
 
 <!-- Database -->
