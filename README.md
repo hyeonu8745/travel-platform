@@ -73,7 +73,7 @@
                                       ▲
                                       │ Retrofit
                       ┌───────────────┴────────────┐
-                      │     Android App (Kotlin)   │
+                      │     Android App (Java)     │
                       │ MVVM + LiveData + Maps SDK │
                       └────────────────────────────┘
 ```
@@ -221,7 +221,7 @@ travel-app-project/
 │
 ├── frontend/      # React Web Client
 ├── backend/       # Node.js Server (REST + Socket.IO)
-├── app/           # Android Native Kotlin App
+├── app/           # Android Native Java App
 └── README.md
 ```
 
@@ -277,7 +277,7 @@ npm run dev
 2. `local.properties` 추가
 
 ```
-GOOGLE_API_KEY=AIzaSy...
+GOOGLE_API_KEY=YOUR_KEY...
 ```
 
 3. Sync → Run ▶
