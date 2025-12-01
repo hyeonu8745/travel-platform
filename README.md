@@ -57,25 +57,25 @@
 ```
                       ┌───────────────────────────┐
                       │         Frontend          │
-                      │          React              │
+                      │          React            │
                       └───────────────┬───────────┘
                                       │ REST / WS
                       ┌───────────────▼───────────┐
-                      │         Backend API        │
-                      │ Node.js + Express +        │
-                      │ Socket.IO + Sequelize ORM  │
+                      │         Backend API       │
+                      │ Node.js + Express +       │
+                      │ Socket.IO + Sequelize ORM │
                       └───────────────┬───────────┘
                                       │
                           ┌───────────▼───────────┐
-                          │        MySQL DB        │
-                          └────────────────────────┘
+                          │        MySQL DB       │
+                          └───────────────────────┘
 
                                       ▲
                                       │ Retrofit
                       ┌───────────────┴────────────┐
-                      │     Android App (Kotlin)    │
-                      │ MVVM + LiveData + Maps SDK  │
-                      └──────────────────────────────┘
+                      │     Android App (Kotlin)   │
+                      │ MVVM + LiveData + Maps SDK │
+                      └────────────────────────────┘
 ```
 
 ---
